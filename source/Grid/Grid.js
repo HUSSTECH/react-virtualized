@@ -828,14 +828,7 @@ class Grid extends React.PureComponent<Props, State> {
     ) {
       newState.scrollLeft = 0;
       newState.scrollTop = 0;
-
-      // only use scroll{Left,Top} from props if scrollTo{Column,Row} isn't specified
-      // scrollTo{Column,Row} should override scroll{Left,Top}
-    } else if (
-      (nextProps.scrollLeft !== prevState.scrollLeft &&
-        nextProps.scrollToColumn < 0) ||
-      (nextProps.scrollTop !== prevState.scrollTop && nextProps.scrollToRow < 0)
-    ) {
+    } else {
       Object.assign(
         newState,
         Grid._getScrollToPositionStateUpdate({
